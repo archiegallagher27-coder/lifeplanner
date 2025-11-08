@@ -1,0 +1,431 @@
+:root {
+  --bg: #071833;
+  --panel: #0f2a44;
+  --accent: #00f0d0;
+  --muted: #9bb3c9;
+  --retro-1: #ffb84d;
+  --retro-2: #ffd873;
+  --text: #e6f7ff;
+  --danger: #ff7b7b;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, var(--bg), #021224 120%);
+  color: var(--text);
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 20px;
+  background: linear-gradient(180deg, var(--panel), #0b2237 140%);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+  width: 1100px;
+  max-width: 100%;
+}
+
+header {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--retro-1), var(--retro-2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #021224;
+  font-weight: 800;
+}
+
+.left, .right {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.btn {
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: #012b2a;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+}
+.btn.small { padding: 6px 8px; font-size: 13px; }
+.btn.danger { background: var(--danger); color: #200; }
+
+.card { margin-bottom: 12px; }
+input, textarea {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+}
+.schedule-grid {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 6px;
+}
+.hour {
+  color: var(--muted);
+  text-align: center;
+}
+.slot {
+  min-height: 60px;
+  border: 1px dashed rgba(255,255,255,0.05);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+.event {
+  background: linear-gradient(90deg, var(--accent), #00d0b0);
+  color: #012b2a;
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-bottom: 4px;
+}
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(1,6,12,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.modal {
+  background: #0b2636;
+  padding: 18px;
+  border-radius: 12px;
+  width: 420px;
+  max-width: 95%;
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+.progress {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.progress i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--retro-1), var(--retro-2));
+  width: 0%;
+}
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background: rgba(255,255,255,0.05);
+  padding: 10px 0;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+.navbar a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
+.navbar a:hover {
+  color: var(--accent);
+}
+.navbar a.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+.app.single {
+  display: block;
+  max-width: 700px;
+}
+
+.motivation-text {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--retro-1);
+  margin: 16px 0;
+}
+.reminder .day {
+  font-size: 12px;
+}
+/* === Navigation and Streak === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+.navbar .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.navbar .app-title {
+  font-weight: 700;
+  color: var(--accent);
+}
+.nav-links a {
+  margin: 0 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-links a.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+}
+.streak-box {
+  color: var(--retro-1);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* Streamlined app layout */
+.app {
+  border-radius: 12px;
+  padding: 16px;
+  background: linear-gradient(180deg, var(--panel), #0b2237 140%);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+/* ================================
+   📱 MOBILE RESPONSIVE STYLES
+   ================================ */
+
+:root {
+  --mobile-padding: 10px;
+}
+
+/* Base adjustments for smaller screens */
+body {
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* Navbar tweaks for mobile */
+.navbar {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 10px var(--mobile-padding);
+}
+
+.navbar .brand {
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.streak-box {
+  flex-basis: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Card layout becomes single column */
+.app {
+  flex-direction: column;
+  padding: var(--mobile-padding);
+}
+
+/* Ensure cards and inputs fit */
+.card {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.card input, 
+.card textarea, 
+.card button {
+  width: 100%;
+  font-size: 16px;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+/* Goals, reminders, schedule sections */
+.schedule, .goals, .reminders {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.motivation-text {
+  font-size: 16px;
+  line-height: 1.4em;
+}
+
+/* ==================================
+   📱 MEDIA QUERIES for fine-tuning
+   ================================== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.4em;
+  }
+  h2 {
+    font-size: 1.1em;
+  }
+
+  .navbar .logo {
+    font-size: 18px;
+    padding: 4px 6px;
+  }
+
+  .streak-box {
+    font-size: 13px;
+  }
+
+  .btn {
+    padding: 10px;
+  }
+}
+/* ==========================
+   🧩 COMPACT PLANNER LAYOUT
+   ========================== */
+
+/* Reduce excess space inside the planner */
+.app {
+  gap: 10px;
+  padding: 12px;
+  align-items: flex-start;
+}
+
+/* Compact the cards */
+.card {
+  padding: 12px 14px;
+  margin: 6px 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Headings tighter */
+.card h2 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Compact text + inputs */
+.card p, 
+.card input, 
+.card textarea {
+  margin: 4px 0;
+  line-height: 1.3em;
+}
+
+/* Inputs smaller but still touch-friendly */
+.card input, 
+.card textarea {
+  padding: 6px 8px;
+  font-size: 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Buttons more compact */
+.btn {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  margin-top: 6px;
+}
+
+/* List items closer together */
+.goals li, 
+.schedule li, 
+.reminders .reminder {
+  margin: 4px 0;
+  padding: 6px 8px;
+  font-size: 14px;
+}
+
+/* Compact header area */
+header {
+  margin-bottom: 10px;
+}
+
+header h1 {
+  font-size: 1.4em;
+  margin: 0;
+}
+
+header p.lead {
+  margin: 2px 0;
+  font-size: 0.9em;
+  color: var(--muted);
+}
+
+/* Adjust for mobile */
+@media (max-width: 600px) {
+  .card {
+    padding: 10px;
+  }
+  .btn {
+    font-size: 15px;
+    padding: 8px;
+  }
+  .card h2 {
+    font-size: 1em;
+  }
+}
+/* ================================
+   🔧 LAYOUT REFINEMENT — LIFT APP UP
+   ================================ */
+
+/* Remove extra space above the main content */
+body {
+  margin: 0;
+  padding-top: 6px; /* keeps a little breathing room under navbar */
+}
+
+/* Pull .app slightly closer to navbar */
+.app {
+  margin-top: 4px; /* previously likely 20px+ */
+}
+
+/* Make sure navbar doesn’t have excessive margin below */
+.navbar {
+  margin-bottom: 8px; /* reduce from 16–20px */
+}

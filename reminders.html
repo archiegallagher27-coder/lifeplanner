@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Life Designer">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Motivation & Reminders</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">.
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">
+        <div class="logo">LD</div>
+        <span class="app-title">Life Designer</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html" id="navPlanner">Planner</a>
+        <a href="reminders.html" id="navMotivation" class="active">Motivation</a>
+    </div>
+    <div class="streak-box">
+        🔥 <span id="streakCount">0</span> day streak
+    </div>
+  </nav>
+
+  <div class="app single">
+    <header>
+      <div class="brand">
+        <div class="logo">LD</div>
+        <div>
+          <h1>Keep Going 🚀</h1>
+          <p class="lead">Your daily reminders & encouragement</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="right">
+      <section class="card">
+        <h2>Today's Motivation</h2>
+        <p id="motivationText" class="motivation-text">Loading your inspiration...</p>
+        <button class="btn" id="newMotivationBtn">New Quote</button>
+      </section>
+
+      <section class="card">
+        <h2>Your Reminders</h2>
+        <div id="reminderList" class="reminders"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="reminders.js"></script>
+</body>
+</html>

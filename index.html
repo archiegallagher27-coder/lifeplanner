@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Life Designer">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Retro Digital Life Planner</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="brand">
+        <div class="logo">LD</div>
+        <span class="app-title">Life Designer</span>
+    </div>
+    <div class="nav-links">
+        <a href="index.html" id="navPlanner" class="active">Planner</a>
+        <a href="reminders.html" id="navMotivation">Motivation</a>
+    </div>
+    <div class="streak-box">
+        🔥 <span id="streakCount">0</span> day streak
+    </div>
+  </nav>
+
+  <div class="app" role="application" aria-label="Retro digital life planner">
+    <header>
+      <div class="brand">
+        <div class="logo">LD</div>
+        <div>
+          <h1>Life Designer</h1>
+          <p class="lead">Daily schedule · reminders · goals</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <div class="muted" id="clock">--:--</div>
+        <button class="btn small" id="exportBtn" title="Export data">Export</button>
+        <button class="btn small ghost" id="importBtn" title="Import data">Import</button>
+      </div>
+    </header>
+
+    <!-- LEFT COLUMN -->
+    <aside class="left" aria-label="Controls & goals">
+      <div class="card">
+        <label for="datePicker">Selected day</label>
+        <div class="date-row">
+          <input id="datePicker" type="date" />
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Today's goals</label>
+        <div class="goals" id="goalsList"></div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <input id="newGoalText" type="text" placeholder="Add a goal..." />
+          <button class="btn small" id="addGoalBtn">Add</button>
+        </div>
+        <div class="bottom-bar">
+          <div class="muted">Progress</div>
+          <div class="progress"><i id="goalsProgress"></i></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Reminders</label>
+        <div class="reminders" id="reminderList"></div>
+
+        <div class="reminder-input">
+          <input id="remText" type="text" placeholder="Reminder text..." />
+          <input id="remTime" type="time" />
+        </div>
+        <div class="reminder-actions">
+          <button class="btn" id="addRemBtn">Set Reminder</button>
+          <button class="btn ghost small" id="clearRemBtn">Clear All</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <label>Data</label>
+        <div class="data-actions">
+          <button class="btn ghost small" id="clearDayBtn">Clear Day</button>
+          <button class="btn small" id="prefBtn">Ask Notifications</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT COLUMN -->
+    <main class="right" aria-label="Schedule">
+      <div class="topbar">
+        <div>
+          <div class="muted">Schedule for</div>
+          <div id="selectedDayFancy">—</div>
+        </div>
+        <div class="controls">
+          <button class="btn ghost small" id="addEventNow">Quick Add</button>
+        </div>
+      </div>
+
+      <div class="schedule-grid" id="scheduleGrid"></div>
+      <div class="bottom-info">
+        <div class="muted">Tap any hour to add an event. Click event to edit/delete.</div>
+        <div class="muted" id="eventsCount">0 events</div>
+      </div>
+    </main>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <h3 id="modalTitle">Add event</h3>
+      <div class="field">
+        <label>Title</label>
+        <input id="evtTitle" type="text" />
+      </div>
+      <div class="field">
+        <label>Time</label>
+        <input id="evtTime" type="time" />
+      </div>
+      <div class="field">
+        <label>Length (minutes)</label>
+        <input id="evtLength" type="number" min="1" value="60" />
+      </div>
+      <div class="field">
+        <label>Note</label>
+        <textarea id="evtNote" rows="3"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn ghost small" id="modalCancel">Cancel</button>
+        <button class="btn small" id="modalSave">Save</button>
+        <button class="btn small danger" id="modalDelete" style="display:none;">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
