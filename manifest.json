@@ -3,8 +3,10 @@
   "short_name": "LifeDesigner",
   "start_url": "index.html",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0a1a2a",
   "theme_color": "#00ffcc",
+  "description": "A retro-digital life planner with goals, schedule and motivational quotes.",
   "icons": [
     {
       "src": "icons/icon-192.png",
